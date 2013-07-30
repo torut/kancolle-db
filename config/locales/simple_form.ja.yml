@@ -1,0 +1,49 @@
+ja:
+  simple_form:
+    "yes": 'はい'
+    "no": 'いいえ'
+    required:
+      text: '必須'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "入力エラーを確認してください。"
+    # Labels and hints examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+    labels:
+      ship:
+        name: '艦娘の名前'
+        ship_class: '艦級'
+        ship_number: '艦番'
+        ship_type: '艦種'
+        number: 'カード番号'
+        stamina: '耐久'
+        firepower: '火力'
+        cuirass: '装甲'
+        torpedo: '雷装'
+        avoidance: '回避'
+        antiair: '対空'
+        aircapacity: '搭載'
+        antisubmarine: '対潜'
+        speed: '速力'
+        scouting: '索敵'
+        range: '射程'
+        luck: '運'
+        renovation_level: '改装可能レベル'
+        rare: 'レア度'
+        note: '備考'
+
+

@@ -1,4 +1,7 @@
 Kancole::Application.routes.draw do
+  resources :ships
+
+
   get "index/index"
 
   root :to => 'index#index'

@@ -1,0 +1,30 @@
+<%= simple_form_for(@ship, :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :ship_class %>
+    <%= f.input :ship_number %>
+    <%= f.input :ship_type, collection: ['戦艦', '航空戦艦', '正規空母', '軽空母', '水上機母艦', '航空巡洋艦', '重雷装巡洋艦', '重巡洋艦', '軽巡洋艦', '駆逐艦'], prompt: '(選択してください)' %>
+    <%= f.input :number %>
+    <%= f.input :stamina %>
+    <%= f.input :firepower %>
+    <%= f.input :cuirass %>
+    <%= f.input :torpedo %>
+    <%= f.input :avoidance %>
+    <%= f.input :antiair %>
+    <%= f.input :aircapacity %>
+    <%= f.input :antisubmarine %>
+    <%= f.input :speed, collection: ['高速', '低速'], as: :radio_buttons %>
+    <%= f.input :scouting %>
+    <%= f.input :range, collection: ['長', '中', '短'], as: :radio_buttons %>
+    <%= f.input :luck %>
+    <%= f.input :renovation_level %>
+    <%= f.input :rare, collection: [['羽4枚、青背景', 1], ['羽6枚、銀背景', 2], ['羽6枚、金背景', 3], ['羽8枚、ホログラム背景', 4], ['羽16枚、ホログラム背景', 5]], as: :radio_buttons %>
+    <%= f.input :note, input_html: {rows: 5} %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary'%>
+  </div>
+<% end %>

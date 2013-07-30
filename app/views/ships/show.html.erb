@@ -1,0 +1,105 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>名前:</b>
+  <%= @ship.name %>
+</p>
+
+<p>
+  <b>艦級:</b>
+  <%= @ship.ship_class %>
+</p>
+
+<p>
+  <b>艦番:</b>
+  <%= @ship.ship_number %>
+</p>
+
+<p>
+  <b>艦種:</b>
+  <%= @ship.ship_type %>
+</p>
+
+<p>
+  <b>カード番号:</b>
+  <%= @ship.number %>
+</p>
+
+<p>
+  <b>耐久:</b>
+  <%= @ship.stamina %>
+</p>
+
+<p>
+  <b>火力:</b>
+  <%= @ship.firepower %>
+</p>
+
+<p>
+  <b>装甲:</b>
+  <%= @ship.cuirass %>
+</p>
+
+<p>
+  <b>雷装:</b>
+  <%= @ship.torpedo %>
+</p>
+
+<p>
+  <b>回避:</b>
+  <%= @ship.avoidance %>
+</p>
+
+<p>
+  <b>対空:</b>
+  <%= @ship.antiair %>
+</p>
+
+<p>
+  <b>搭載:</b>
+  <%= @ship.aircapacity %>
+</p>
+
+<p>
+  <b>対潜:</b>
+  <%= @ship.antisubmarine %>
+</p>
+
+<p>
+  <b>速力:</b>
+  <%= @ship.speed %>
+</p>
+
+<p>
+  <b>索敵:</b>
+  <%= @ship.scouting %>
+</p>
+
+<p>
+  <b>射程:</b>
+  <%= @ship.range %>
+</p>
+
+<p>
+  <b>運:</b>
+  <%= @ship.luck %>
+</p>
+
+<p>
+  <b>改装可能レベル:</b>
+  <%= @ship.renovation_level %>
+</p>
+
+<p>
+  <b>レア度:</b>
+  <%= @ship.rare_value %>
+</p>
+
+<p>
+  <b>備考:</b>
+  <%= @ship.note %>
+</p>
+
+
+<%= link_to '編集', edit_ship_path(@ship) %> |
+<%= link_to '艦娘リストに戻る', ships_path %>
