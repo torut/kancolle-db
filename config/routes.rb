@@ -1,6 +1,5 @@
 Kancole::Application.routes.draw do
-  resources :ships
-
+  resources :ships, :only => [:index, :show]
 
   get "index/index"
 

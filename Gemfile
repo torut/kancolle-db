@@ -22,6 +22,8 @@ group :assets do
   gem 'twitter-bootstrap-rails'
   gem 'less-rails'
   gem 'simple_form'
+
+  gem 'colorbox-rails'
 end
 
 gem 'jquery-rails'

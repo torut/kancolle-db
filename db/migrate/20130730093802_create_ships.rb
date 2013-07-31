@@ -7,7 +7,6 @@ class CreateShips < ActiveRecord::Migration
 
       t.string  :name, :null => false
       t.string  :ship_class, :null => false
-      t.integer :ship_number, :null => false
       t.string  :ship_type, :null => false
       t.integer :number, :null => false
       t.integer :stamina, :null => false
@@ -18,9 +17,9 @@ class CreateShips < ActiveRecord::Migration
       t.integer :antiair, :null => false
       t.integer :aircapacity, :null => false
       t.integer :antisubmarine, :null => false
-      t.string  :speed, :null => false
+      t.integer :speed, :null => false
       t.integer :scouting, :null => false
-      t.string  :range, :null => false
+      t.integer :range, :null => false
       t.integer :luck, :null => false
       t.integer :renovation_level, :null => false
       t.integer :rare, :null => false, :default => 1

@@ -1,35 +1,37 @@
-<h2>艦娘リスト</h2>
+<% content_for :title do %>
+艦娘リスト
+<% end %>
+
+<h2><%= yield(:title) %></h2>
 
 <table class="table table-striped table-hover">
   <tr>
-	<th>番号</th>
-    <th>艦名</th>
-    <th>艦級</th>
-    <th>艦種</th>
-    <th>耐久</th>
-    <th>火力</th>
-    <th>装甲</th>
-    <th>雷装</th>
-    <th>回避</th>
-    <th>対空</th>
-    <th>搭載</th>
-    <th>対潜</th>
-    <th>速力</th>
-    <th>索敵</th>
-    <th>射程</th>
-    <th>運</th>
-    <th>改装</th>
-    <th>レア度</th>
+	<th><%= sortable('番号', 'number', @sort, @direction) %></th>
+    <th><%= sortable('艦名', 'name', @sort, @direction) %></th>
+    <th><%= sortable('艦級', 'ship_class', @sort, @direction) %></th>
+    <th><%= sortable('艦種', 'ship_type', @sort, @direction) %></th>
+    <th><%= sortable('耐久', 'stamina', @sort, @direction) %></th>
+    <th><%= sortable('火力', 'firepower', @sort, @direction) %></th>
+    <th><%= sortable('装甲', 'cuirass', @sort, @direction) %></th>
+    <th><%= sortable('雷装', 'torpedo', @sort, @direction) %></th>
+    <th><%= sortable('回避', 'avoidance', @sort, @direction) %></th>
+    <th><%= sortable('対空', 'antiair', @sort, @direction) %></th>
+    <th><%= sortable('搭載', 'aircapacity', @sort, @direction) %></th>
+    <th><%= sortable('対潜', 'antisubmarine', @sort, @direction) %></th>
+    <th><%= sortable('速力', 'speed', @sort, @direction) %></th>
+    <th><%= sortable('索敵', 'scouting', @sort, @direction) %></th>
+    <th><%= sortable('射程', 'range', @sort, @direction) %></th>
+    <th><%= sortable('運', 'luck', @sort, @direction) %></th>
+    <th><%= sortable('改装', 'renovation_level', @sort, @direction) %></th>
+    <th><%= sortable('レア度', 'rare', @sort, @direction) %></th>
     <th>備考</th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @ships.each do |ship| %>
   <tr>
     <td><%= ship.number %></td>
-    <td><%= link_to ship.name, ship %></td>
-    <td><%= ship.ship_class %> <%= ship.ship_number %>番艦</td>
+    <td><%= link_to ship.name, ship, :data => {:colorbox => true, :colorbox_height => '480px', :colorbox_width => '640px', :colorbox_iframe => true} %></td>
+    <td><%= ship.ship_class %></td>
     <td><%= ship.ship_type %></td>
     <td><%= ship.stamina %></td>
     <td><%= ship.firepower %></td>
@@ -39,19 +41,14 @@
     <td><%= ship.antiair %></td>
     <td><%= ship.aircapacity %></td>
     <td><%= ship.antisubmarine %></td>
-    <td><%= ship.speed %></td>
+    <td><%= ship.speed_value %></td>
     <td><%= ship.scouting %></td>
-    <td><%= ship.range %></td>
+    <td><%= ship.range_value %></td>
     <td><%= ship.luck %></td>
     <td><%= ship.renovation_level %></td>
-    <td><%= ship.rare %></td>
+    <td><%= ship.rare_value %></td>
     <td><%= ship.note %></td>
-    <td><%= link_to glyph(:pencil), edit_ship_path(ship) %></td>
-    <td><%= link_to glyph(:trash), ship, method: :delete, data: { confirm: "'#{ship.name}'を除籍しますがよろしいですか?" } %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to '竣工した艦娘を登録', new_ship_path %>

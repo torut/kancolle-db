@@ -5,8 +5,6 @@ require 'nokogiri'
 class Tasks::ImportShip
 
   def self.execute
-    p __FILE__
-
     url = 'http://wikiwiki.jp/kancolle/?%B4%CF%C1%A5'
 
     charset = ''
@@ -30,11 +28,8 @@ class Tasks::ImportShip
           col = 'rare'
         when 2
           col = 'name'
-        when 3
-          col = 'ship_class'
         when 4
-          col = 'ship_number'
-          val = val.gsub(/([^\d].+)(\d+)番艦/, '\2')
+          col = 'ship_class'
         when 5
           col = 'ship_type'
         when 6
@@ -57,14 +52,22 @@ class Tasks::ImportShip
           col = 'speed'
           case val
           when '低'
-            val = '低速'
+            val = 1
           when '高'
-            val = '高速'
+            val = 2
           end
         when 15
           col = 'scouting'
         when 16
           col = 'range'
+          case val
+          when '長'
+            val = 3
+          when '中'
+            val = 2
+          when '短'
+            val = 1
+          end
         when 17
           col = 'luck'
         when 18
