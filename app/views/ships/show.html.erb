@@ -1,54 +1,73 @@
 <% content_for :title do %>
-<%= @ship.number %> <%= @ship.name %>
+<%= sprintf("%03d", @ship.number) %> <%= @ship.name %>
 <% end %>
 
-<h1><%= @ship.number %> <%= @ship.name %></h1>
+<h1><%= yield(:title) %></h1>
 <p class="lead"><%= @ship.ship_type %> <%= @ship.ship_class %></p>
 
-<div class="well">
+<dl>
+  <dt>初期パラメータ</dt>
+  <dd>
+	<table class="table">
+	  <tr>
+		<th class="span2">耐久</th>
+		<td class="span2"><%= @ship.stamina %></td>
+		<th class="span2">火力</th>
+		<td class="span2"><%= @ship.firepower %></td>
+		<th class="span2">装甲</th>
+		<td class="span2"><%= @ship.cuirass %></td>
+		<th class="span2">雷装</th>
+		<td class="span2"><%= @ship.torpedo %></td>
+	  </tr>
+	  <tr>
+		<th>回避</th>
+		<td><%= @ship.avoidance %></td>
+		<th>対空</th>
+		<td><%= @ship.antiair %></td>
+		<th>搭載</th>
+		<td><%= @ship.aircapacity %></td>
+		<th>対潜</th>
+		<td><%= @ship.antisubmarine %></td>
+	  </tr>
+	  <tr>
+		<th>速力</th>
+		<td><%= @ship.speed_value %></td>
+		<th>索敵</th>
+		<td><%= @ship.scouting %></td>
+		<th>射程</th>
+		<td><%= @ship.range_value %></td>
+		<th>運</th>
+		<td><%= @ship.luck %></td>
+	  </tr>
+	  <tr>
+		<th>改装</th>
+		<td colspan="3"><%= @ship.renovation_level %></td>
+		<th>レア度</th>
+		<td colspan="3"><%= @ship.rare_value %></td>
+	  </tr>
+	</table>
+  </dd>
+</dl>
 
-<table class="table">
-  <tr>
-    <th class="span2">耐久</th>
-    <td class="span2"><%= @ship.stamina %></td>
-    <th class="span2">火力</th>
-    <td class="span2"><%= @ship.firepower %></td>
-    <th class="span2">装甲</th>
-    <td class="span2"><%= @ship.cuirass %></td>
-    <th class="span2">雷装</th>
-    <td class="span2"><%= @ship.torpedo %></td>
-  </tr>
-  <tr>
-    <th>回避</th>
-    <td><%= @ship.avoidance %></td>
-    <th>対空</th>
-    <td><%= @ship.antiair %></td>
-    <th>搭載</th>
-    <td><%= @ship.aircapacity %></td>
-    <th>対潜</th>
-    <td><%= @ship.antisubmarine %></td>
-  </tr>
-  <tr>
-    <th>速力</th>
-    <td><%= @ship.speed_value %></td>
-    <th>索敵</th>
-    <td><%= @ship.scouting %></td>
-    <th>射程</th>
-    <td><%= @ship.range_value %></td>
-    <th>運</th>
-    <td><%= @ship.luck %></td>
-  </tr>
-  <tr>
-    <th>改装</th>
-    <td colspan="3"><%= @ship.renovation_level %></td>
-    <th>レア度</th>
-    <td colspan="3"><%= @ship.rare_value %></td>
-  </tr>
-</table>
+<dl>
+  <dt>近代化改修(合成)時の影響値</dt>
+  <dd>
+	<table class="table">
+	  <tr>
+		<th class="span2">火力</th>
+		<td class="span2"><%= add_symbol(@ship.synthesis_firepower, '-') %></td>
+		<th class="span2">雷装</th>
+		<td class="span2"><%= add_symbol(@ship.synthesis_torpedo, '-') %></td>
+		<th class="span2">対空</th>
+		<td class="span2"><%= add_symbol(@ship.synthesis_antiair, '-') %></td>
+		<th class="span2">装甲</th>
+		<td class="span2"><%= add_symbol(@ship.synthesis_cuirass, '-') %></td>
+	  </tr>
+	</table>
+  </dd>
+</dl>
 
-<p>
-  <b>備考:</b>
-  <%= @ship.note %>
-</p>
-
-</div>
+<dl>
+  <dt>備考</dt>
+  <dd><p><%= simple_format(@ship.note) %></p></dd>
+</dl>

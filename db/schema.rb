@@ -11,30 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130730093802) do
+ActiveRecord::Schema.define(:version => 20130731133719) do
 
   create_table "ships", :force => true do |t|
-    t.string   "name",                            :null => false
-    t.string   "ship_class",                      :null => false
-    t.string   "ship_type",                       :null => false
-    t.integer  "number",                          :null => false
-    t.integer  "stamina",                         :null => false
-    t.integer  "firepower",                       :null => false
-    t.integer  "cuirass",                         :null => false
-    t.integer  "torpedo",                         :null => false
-    t.integer  "avoidance",                       :null => false
-    t.integer  "antiair",                         :null => false
-    t.integer  "aircapacity",                     :null => false
-    t.integer  "antisubmarine",                   :null => false
-    t.integer  "speed",                           :null => false
-    t.integer  "scouting",                        :null => false
-    t.integer  "range",                           :null => false
-    t.integer  "luck",                            :null => false
-    t.integer  "renovation_level",                :null => false
-    t.integer  "rare",             :default => 1, :null => false
+    t.string   "name",                               :null => false
+    t.string   "ship_class",                         :null => false
+    t.string   "ship_type",                          :null => false
+    t.integer  "number",                             :null => false
+    t.integer  "stamina",                            :null => false
+    t.integer  "firepower",                          :null => false
+    t.integer  "cuirass",                            :null => false
+    t.integer  "torpedo",                            :null => false
+    t.integer  "avoidance",                          :null => false
+    t.integer  "antiair",                            :null => false
+    t.integer  "aircapacity",                        :null => false
+    t.integer  "antisubmarine",                      :null => false
+    t.integer  "speed",                              :null => false
+    t.integer  "scouting",                           :null => false
+    t.integer  "range",                              :null => false
+    t.integer  "luck",                               :null => false
+    t.integer  "renovation_level",                   :null => false
+    t.integer  "rare",                :default => 1, :null => false
     t.text     "note"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.integer  "synthesis_firepower"
+    t.integer  "synthesis_torpedo"
+    t.integer  "synthesis_antiair"
+    t.integer  "synthesis_cuirass"
   end
 
 end
