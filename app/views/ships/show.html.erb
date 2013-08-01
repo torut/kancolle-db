@@ -39,11 +39,15 @@
 		<th>運</th>
 		<td><%= @ship.luck %></td>
 	  </tr>
+	</table>
+	<table class="table">
 	  <tr>
-		<th>改装</th>
-		<td colspan="3"><%= @ship.renovation_level %></td>
-		<th>レア度</th>
-		<td colspan="3"><%= @ship.rare_value %></td>
+		<th class="span2">改装</th>
+		<td class="span2"><%= @ship.renovation_level %></td>
+		<th class="span4">装備スロット数</th>
+		<td class="span2"><%= @ship.equipment_slots %></td>
+		<th class="span2">レア度</th>
+		<td class="span4"><%= @ship.rare_value %></td>
 	  </tr>
 	</table>
   </dd>

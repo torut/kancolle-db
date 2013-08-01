@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130731133719) do
+ActiveRecord::Schema.define(:version => 20130801091958) do
 
   create_table "ships", :force => true do |t|
     t.string   "name",                               :null => false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20130731133719) do
     t.integer  "synthesis_torpedo"
     t.integer  "synthesis_antiair"
     t.integer  "synthesis_cuirass"
+    t.integer  "equipment_slots"
   end
 
 end
