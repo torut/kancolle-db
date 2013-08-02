@@ -1,10 +1,16 @@
 # -*- coding: utf-8 -*-
 class Ship < ActiveRecord::Base
-  attr_accessible :aircapacity, :antiair, :antisubmarine, :avoidance, :cuirass, :firepower, :luck, :name, :note, :number, :range, :rare, :renovation_level, :scouting, :ship_class, :ship_type, :speed, :stamina, :torpedo
-  validates_presence_of :aircapacity, :antiair, :antisubmarine, :avoidance, :cuirass, :firepower, :luck, :name, :number, :range, :renovation_level, :scouting, :ship_class, :ship_type, :speed, :stamina, :torpedo
+  attr_accessible :aircapacity, :antiair, :antisubmarine, :avoidance, :cuirass, :firepower, :luck, :name, :note, :number, :range, :rare, :renovation_level, :scouting, :ship_class, :ship_type, :speed, :stamina, :torpedo, :synthesis_firepower, :synthesis_torpedo, :synthesis_antiair, :synthesis_cuirass, :equipment_slots
+
+  validates_presence_of :name, :number, :ship_class, :ship_type, :rare
 
   def speed_value
-    speed == 1 ? '低速' : '高速'
+    case speed
+    when 1
+      '低速'
+    when 2
+      '高速'
+    end
   end
 
   def range_value

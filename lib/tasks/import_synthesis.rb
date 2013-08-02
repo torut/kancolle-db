@@ -8,10 +8,7 @@ class Tasks::ImportSynthesis
     url = 'http://wikiwiki.jp/kancolle/?%B6%E1%C2%E5%B2%BD%B2%FE%BD%A4%2F%A5%C6%A1%BC%A5%D6%A5%EB'
 
     charset = ''
-    html = open(url) do |page|
-      charset = page.charset
-      page.read
-    end
+    html = open(url)
 
     doc = Nokogiri::HTML(html)
     doc.css('div#body div.ie5 table.style_table tr').each do |tr|
@@ -22,7 +19,6 @@ class Tasks::ImportSynthesis
 
       tr.children.each_with_index do |td, i|
         val = td.content
-        next if val == '-' || val.empty?
 
         col = nil
         case i
@@ -36,6 +32,7 @@ class Tasks::ImportSynthesis
           col = 'synthesis_cuirass'
         end
 
+        val = val.blank? ? nil : val
         ship[col] = val if !col.nil?
       end
 

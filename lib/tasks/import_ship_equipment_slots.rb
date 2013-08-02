@@ -10,9 +10,7 @@ class Tasks::ImportShipEquipmentSlots
 
     Ship.all.each do |ship|
       detail_url = url + URI.encode(ship.name.encode('EUC-JP'))
-      html = open(detail_url) do |page|
-        page.read
-      end
+      html = open(detail_url)
 
       doc = Nokogiri::HTML(html)
       slots = 0

@@ -8,10 +8,7 @@ class Tasks::ImportShip
     url = 'http://wikiwiki.jp/kancolle/?%B4%CF%C1%A5'
 
     charset = ''
-    html = open(url) do |page|
-      charset = page.charset
-      page.read
-    end
+    html = open(url);
 
     doc = Nokogiri::HTML(html)
     doc.css('div#body div.ie5 table.style_table tr').each do |tr|
@@ -72,6 +69,7 @@ class Tasks::ImportShip
           col = 'luck'
         when 18
           col = 'renovation_level'
+          val = val.blank? ? nil : val
         when 19
           col = 'note'
         end
