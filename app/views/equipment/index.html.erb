@@ -1,57 +1,57 @@
-<h1>Listing equipment</h1>
+<% content_for :title do %>
+装備品リスト
+<% end %>
 
-<table>
+<h2><%= yield(:title) %></h2>
+
+<table class="table table-striped table-hover">
   <tr>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Number</th>
-    <th>Firepower</th>
-    <th>Torpedo</th>
-    <th>Bomb</th>
-    <th>Antiair</th>
-    <th>Antisubmatine</th>
-    <th>Scouting</th>
-    <th>Hit</th>
-    <th>Range</th>
-    <th>Can destroyer</th>
-    <th>Can light cruiser</th>
-    <th>Can heavy cruiser</th>
-    <th>Can battleship</th>
-    <th>Can light air carrier</th>
-    <th>Can air carrier</th>
-    <th>Can seeplane carrier</th>
-    <th>Can ari cruiser</th>
-    <th>Rare</th>
-    <th>Note</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th><%= sortable('番号', 'number', @sort, @direction) %></th>
+    <th><%= sortable('名前', 'name', @sort, @direction) %></th>
+    <th><%= sortable('種別', 'equip_type', @sort, @direction) %></th>
+    <th><%= sortable('火力', 'firepower', @sort, @direction) %></th>
+    <th><%= sortable('雷装', 'torpedo', @sort, @direction) %></th>
+    <th><%= sortable('爆装', 'bomb', @sort, @direction) %></th>
+    <th><%= sortable('対空', 'antiair', @sort, @direction) %></th>
+    <th><%= sortable('対潜', 'antisubmarine', @sort, @direction) %></th>
+    <th><%= sortable('索敵', 'scouting', @sort, @direction) %></th>
+    <th><%= sortable('命中', 'hit', @sort, @direction) %></th>
+    <th><%= sortable('射程', 'range', @sort, @direction) %></th>
+    <th><%= sortable('駆逐', 'can_destroyer', @sort, @direction) %></th>
+    <th><%= sortable('軽巡', 'can_light_cruiser', @sort, @direction) %></th>
+    <th><%= sortable('重巡', 'can_heavy_cruiser', @sort, @direction) %></th>
+    <th><%= sortable('戦艦', 'can_battleship', @sort, @direction) %></th>
+    <th><%= sortable('軽母', 'can_light_air_carrier', @sort, @direction) %></th>
+    <th><%= sortable('空母', 'can_air_carrier', @sort, @direction) %></th>
+    <th><%= sortable('水母', 'can_seaplane_carrier', @sort, @direction) %></th>
+    <th><%= sortable('航戦', 'can_air_battleship', @sort, @direction) %></th>
+    <th><%= sortable('レア度', 'rare', @sort, @direction) %></th>
+    <th>備考</th>
   </tr>
 
 <% @equipment.each do |equipment| %>
   <tr>
-    <td><%= equipment.name %></td>
-    <td><%= equipment.type %></td>
     <td><%= equipment.number %></td>
+    <td><%= link_to equipment.name, equipment, :data => {:colorbox => true, :colorbox_height => '480px', :colorbox_width => '640px', :colorbox_iframe => true} %></td>
+    <td><%= equipment.equip_type %></td>
     <td><%= equipment.firepower %></td>
     <td><%= equipment.torpedo %></td>
     <td><%= equipment.bomb %></td>
     <td><%= equipment.antiair %></td>
-    <td><%= equipment.antisubmatine %></td>
+    <td><%= equipment.antisubmarine %></td>
     <td><%= equipment.scouting %></td>
     <td><%= equipment.hit %></td>
     <td><%= equipment.range %></td>
-    <td><%= equipment.can_destroyer %></td>
-    <td><%= equipment.can_light_cruiser %></td>
-    <td><%= equipment.can_heavy_cruiser %></td>
-    <td><%= equipment.can_battleship %></td>
-    <td><%= equipment.can_light_air_carrier %></td>
-    <td><%= equipment.can_air_carrier %></td>
-    <td><%= equipment.can_seeplane_carrier %></td>
-    <td><%= equipment.can_ari_cruiser %></td>
+    <td><%= equipment.can_destroyer ? '可' : '不可' %></td>
+    <td><%= equipment.can_light_cruiser ? '可' : '不可' %></td>
+    <td><%= equipment.can_heavy_cruiser ? '可' : '不可' %></td>
+    <td><%= equipment.can_battleship ? '可' : '不可' %></td>
+    <td><%= equipment.can_light_air_carrier ? '可' : '不可' %></td>
+    <td><%= equipment.can_air_carrier ? '可' : '不可' %></td>
+    <td><%= equipment.can_seaplane_carrier ? '可' : '不可' %></td>
+    <td><%= equipment.can_air_battleship ? '可' : '不可' %></td>
     <td><%= equipment.rare %></td>
     <td><%= equipment.note %></td>
-    <td><%= link_to 'Show', equipment %></td>
   </tr>
 <% end %>
 </table>

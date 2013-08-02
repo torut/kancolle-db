@@ -1,109 +1,52 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title do %>
+<%= sprintf("%03d", @equipment.number) %> <%= @equipment.name %>
+<% end %>
 
-<p>
-  <b>Name:</b>
-  <%= @equipment.name %>
-</p>
+<h1><%= yield(:title) %></h1>
+<p class="lead"><%= @equipment.equip_type %></p>
 
-<p>
-  <b>Type:</b>
-  <%= @equipment.type %>
-</p>
+<dl>
+  <dt>パラメータ</dt>
+  <dd>
+	<table class="table">
+	  <tr>
+		<th class="span2">火力</th>
+		<td class="span2"><%= @equipment.firepower %></td>
+		<th class="span2">雷装</th>
+		<td class="span2"><%= @equipment.torpedo %></td>
+		<th class="span2">爆装</th>
+		<td class="span2"><%= @equipment.bomb %></td>
+		<th class="span2">対空</th>
+		<td class="span2"><%= @equipment.antiair %></td>
+	  </tr>
+	  <tr>
+		<th>対潜</th>
+		<td><%= @equipment.antisubmarine %></td>
+		<th>索敵</th>
+		<td><%= @equipment.scouting %></td>
+		<th>命中</th>
+		<td><%= @equipment.hit %></td>
+		<th>射程</th>
+		<td><%= @equipment.range_value %></td>
+	  </tr>
+	</table>
+  </dd>
+</dl>
 
-<p>
-  <b>Number:</b>
-  <%= @equipment.number %>
-</p>
+<dl>
+  <dt>装備可能艦種</dt>
+  <dd>
+	<%= @equipment.can_equip_ship_types %>
+  </dd>
+</dl>
 
-<p>
-  <b>Firepower:</b>
-  <%= @equipment.firepower %>
-</p>
+<dl>
+  <dt>レア度</dt>
+  <dd><%= '☆' * (@equipment.rare) %></dd>
+</dl>
 
-<p>
-  <b>Torpedo:</b>
-  <%= @equipment.torpedo %>
-</p>
+<dl>
+  <dt>備考</dt>
+  <dd><p><%= simple_format(@equipment.note) %></p></dd>
+</dl>
 
-<p>
-  <b>Bomb:</b>
-  <%= @equipment.bomb %>
-</p>
-
-<p>
-  <b>Antiair:</b>
-  <%= @equipment.antiair %>
-</p>
-
-<p>
-  <b>Antisubmatine:</b>
-  <%= @equipment.antisubmatine %>
-</p>
-
-<p>
-  <b>Scouting:</b>
-  <%= @equipment.scouting %>
-</p>
-
-<p>
-  <b>Hit:</b>
-  <%= @equipment.hit %>
-</p>
-
-<p>
-  <b>Range:</b>
-  <%= @equipment.range %>
-</p>
-
-<p>
-  <b>Can destroyer:</b>
-  <%= @equipment.can_destroyer %>
-</p>
-
-<p>
-  <b>Can light cruiser:</b>
-  <%= @equipment.can_light_cruiser %>
-</p>
-
-<p>
-  <b>Can heavy cruiser:</b>
-  <%= @equipment.can_heavy_cruiser %>
-</p>
-
-<p>
-  <b>Can battleship:</b>
-  <%= @equipment.can_battleship %>
-</p>
-
-<p>
-  <b>Can light air carrier:</b>
-  <%= @equipment.can_light_air_carrier %>
-</p>
-
-<p>
-  <b>Can air carrier:</b>
-  <%= @equipment.can_air_carrier %>
-</p>
-
-<p>
-  <b>Can seeplane carrier:</b>
-  <%= @equipment.can_seeplane_carrier %>
-</p>
-
-<p>
-  <b>Can ari cruiser:</b>
-  <%= @equipment.can_ari_cruiser %>
-</p>
-
-<p>
-  <b>Rare:</b>
-  <%= @equipment.rare %>
-</p>
-
-<p>
-  <b>Note:</b>
-  <%= @equipment.note %>
-</p>
-
-
-<%= link_to 'Back', equipment_index_path %>

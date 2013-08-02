@@ -6,13 +6,13 @@ class CreateEquipment < ActiveRecord::Migration
                  ) do |t|
 
       t.string  :name, :null => false
-      t.string  :type, :null => false
-      t.string  :number, :null => false
+      t.string  :equip_type, :null => false
+      t.integer :number, :null => false
       t.integer :firepower
       t.integer :torpedo
       t.integer :bomb
       t.integer :antiair
-      t.integer :antisubmatine
+      t.integer :antisubmarine
       t.integer :scouting
       t.integer :hit
       t.integer :range
@@ -22,8 +22,8 @@ class CreateEquipment < ActiveRecord::Migration
       t.boolean :can_battleship
       t.boolean :can_light_air_carrier
       t.boolean :can_air_carrier
-      t.boolean :can_seeplane_carrier
-      t.boolean :can_ari_cruiser
+      t.boolean :can_seaplane_carrier
+      t.boolean :can_air_battleship
       t.integer :rare, :null => false, :default => 1
       t.text :note
 

@@ -11,7 +11,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130801091958) do
+ActiveRecord::Schema.define(:version => 20130802100815) do
+
+  create_table "equipment", :force => true do |t|
+    t.string   "name",                                 :null => false
+    t.string   "equip_type",                           :null => false
+    t.integer  "number",                               :null => false
+    t.integer  "firepower"
+    t.integer  "torpedo"
+    t.integer  "bomb"
+    t.integer  "antiair"
+    t.integer  "antisubmarine"
+    t.integer  "scouting"
+    t.integer  "hit"
+    t.integer  "range"
+    t.boolean  "can_destroyer"
+    t.boolean  "can_light_cruiser"
+    t.boolean  "can_heavy_cruiser"
+    t.boolean  "can_battleship"
+    t.boolean  "can_light_air_carrier"
+    t.boolean  "can_air_carrier"
+    t.boolean  "can_seaplane_carrier"
+    t.boolean  "can_air_battleship"
+    t.integer  "rare",                  :default => 1, :null => false
+    t.text     "note"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
 
   create_table "ships", :force => true do |t|
     t.string   "name",                               :null => false
