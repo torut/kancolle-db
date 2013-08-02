@@ -1,0 +1,57 @@
+<h1>Listing equipment</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Number</th>
+    <th>Firepower</th>
+    <th>Torpedo</th>
+    <th>Bomb</th>
+    <th>Antiair</th>
+    <th>Antisubmatine</th>
+    <th>Scouting</th>
+    <th>Hit</th>
+    <th>Range</th>
+    <th>Can destroyer</th>
+    <th>Can light cruiser</th>
+    <th>Can heavy cruiser</th>
+    <th>Can battleship</th>
+    <th>Can light air carrier</th>
+    <th>Can air carrier</th>
+    <th>Can seeplane carrier</th>
+    <th>Can ari cruiser</th>
+    <th>Rare</th>
+    <th>Note</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @equipment.each do |equipment| %>
+  <tr>
+    <td><%= equipment.name %></td>
+    <td><%= equipment.type %></td>
+    <td><%= equipment.number %></td>
+    <td><%= equipment.firepower %></td>
+    <td><%= equipment.torpedo %></td>
+    <td><%= equipment.bomb %></td>
+    <td><%= equipment.antiair %></td>
+    <td><%= equipment.antisubmatine %></td>
+    <td><%= equipment.scouting %></td>
+    <td><%= equipment.hit %></td>
+    <td><%= equipment.range %></td>
+    <td><%= equipment.can_destroyer %></td>
+    <td><%= equipment.can_light_cruiser %></td>
+    <td><%= equipment.can_heavy_cruiser %></td>
+    <td><%= equipment.can_battleship %></td>
+    <td><%= equipment.can_light_air_carrier %></td>
+    <td><%= equipment.can_air_carrier %></td>
+    <td><%= equipment.can_seeplane_carrier %></td>
+    <td><%= equipment.can_ari_cruiser %></td>
+    <td><%= equipment.rare %></td>
+    <td><%= equipment.note %></td>
+    <td><%= link_to 'Show', equipment %></td>
+  </tr>
+<% end %>
+</table>
