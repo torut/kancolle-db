@@ -51,3 +51,6 @@ group :development do
 end
 
 gem 'nokogiri'
+
+gem 'omniauth'
+gem 'omniauth-twitter'

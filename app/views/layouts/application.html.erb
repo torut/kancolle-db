@@ -31,6 +31,14 @@
               <li><%= link_to "艦娘リスト", "/ships"  %></li>
               <li><%= link_to "装備品リスト", "/equipment"  %></li>
             </ul>
+			<ul class="nav pull-right">
+			  <% if current_user %>
+			  <li><%= link_to current_user.name, :root %></li>
+			  <li><%= link_to "ログアウト", :logout %></li>
+			  <% else %>
+			  <li><%= link_to "Twitterでログイン", "/auth/twitter" %></li>
+			  <% end %>
+			</ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
