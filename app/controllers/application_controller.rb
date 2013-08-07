@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find(session[:user_id])
     else
       session[:user_id] = nil
-      redirect_to root_url, :notice => 'ログインしてください'
+      redirect_to :twitter_login
     end
     rescue
       session[:user_id] = nil

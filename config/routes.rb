@@ -14,6 +14,7 @@ Kancole::Application.routes.draw do
   # OmniAuth
   match "/auth/:provider/callback" => "sessions#callback"
   match "/logout" => "sessions#destroy", :as => :logout
+  match "/auth/twitter" => "auth#twitter", :as => :twitter_login
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

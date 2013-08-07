@@ -23,4 +23,13 @@ class User < ActiveRecord::Base
     self.last_session_at = Time.now
     self.save
   end
+
+  def favorited(ship_id)
+    self.favorites.each do |fav|
+      return true if fav.ship_id == ship_id
+    end
+    return false
+  end
+
+
 end

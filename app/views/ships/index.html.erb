@@ -30,7 +30,10 @@
 <% @ships.each do |ship| %>
   <tr>
     <td><%= ship.number %></td>
-    <td><%= link_to ship.name, ship, :data => {:colorbox => true, :colorbox_height => '480px', :colorbox_width => '640px', :colorbox_iframe => true} %></td>
+    <td>
+	  <%= add_favorite_icon(ship.id) %>
+	  <%= link_to ship.name, ship, :data => {:colorbox => true, :colorbox_height => '480px', :colorbox_width => '640px', :colorbox_iframe => true} %>
+	</td>
     <td><%= ship.ship_class %></td>
     <td><%= ship.ship_type %></td>
     <td><%= ship.stamina %></td>

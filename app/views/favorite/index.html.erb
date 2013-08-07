@@ -4,51 +4,12 @@
 
 <h2><%= yield(:title) %></h2>
 
-<table class="table table-striped table-hover">
-  <tr>
-	<th><%= sortable('番号', 'number', @sort, @direction) %></th>
-    <th><%= sortable('艦名', 'name', @sort, @direction) %></th>
-    <th><%= sortable('艦級', 'ship_class', @sort, @direction) %></th>
-    <th><%= sortable('艦種', 'ship_type', @sort, @direction) %></th>
-    <th><%= sortable('耐久', 'stamina', @sort, @direction) %></th>
-    <th><%= sortable('火力', 'firepower', @sort, @direction) %></th>
-    <th><%= sortable('装甲', 'cuirass', @sort, @direction) %></th>
-    <th><%= sortable('雷装', 'torpedo', @sort, @direction) %></th>
-    <th><%= sortable('回避', 'avoidance', @sort, @direction) %></th>
-    <th><%= sortable('対空', 'antiair', @sort, @direction) %></th>
-    <th><%= sortable('搭載', 'aircapacity', @sort, @direction) %></th>
-    <th><%= sortable('対潜', 'antisubmarine', @sort, @direction) %></th>
-    <th><%= sortable('速力', 'speed', @sort, @direction) %></th>
-    <th><%= sortable('索敵', 'scouting', @sort, @direction) %></th>
-    <th><%= sortable('射程', 'range', @sort, @direction) %></th>
-    <th><%= sortable('運', 'luck', @sort, @direction) %></th>
-    <th><%= sortable('改装', 'renovation_level', @sort, @direction) %></th>
-    <th><%= sortable('レア度', 'rare', @sort, @direction) %></th>
-    <th>備考</th>
-  </tr>
-
+<div class="favorites">
 <% @favorites.each do |fav| ship = fav.ship %>
-  <tr>
-    <td><%= ship.number %></td>
-    <td><%= link_to ship.name, ship, :data => {:colorbox => true, :colorbox_height => '480px', :colorbox_width => '640px', :colorbox_iframe => true} %></td>
-    <td><%= ship.ship_class %></td>
-    <td><%= ship.ship_type %></td>
-    <td><%= ship.stamina %></td>
-    <td><%= ship.firepower %></td>
-    <td><%= ship.cuirass %></td>
-    <td><%= ship.torpedo %></td>
-    <td><%= ship.avoidance %></td>
-    <td><%= ship.antiair %></td>
-    <td><%= ship.aircapacity %></td>
-    <td><%= ship.antisubmarine %></td>
-    <td><%= ship.speed_value %></td>
-    <td><%= ship.scouting %></td>
-    <td><%= ship.range_value %></td>
-    <td><%= ship.luck %></td>
-    <td><%= ship.renovation_level %></td>
-    <td><%= ship.rare_value %></td>
-    <td><%= ship.note %></td>
-  </tr>
+  <div class="ship well well-small">
+	<h4><%= link_to ship.name, ship, :data => {:colorbox => true, :colorbox_height => '480px', :colorbox_width => '640px', :colorbox_iframe => true} %></h4>
+	<p><%= ship.number %> : <%= ship.ship_class %> : <%= ship.ship_type %></p>
+  </div>
 <% end %>
-</table>
+</div>
 
