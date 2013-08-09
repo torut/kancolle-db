@@ -1,4 +1,6 @@
 listen 3000 # by default Unicorn listens on port 8080
+listen '/tmp/unicorn_kancolle-db.sock', :backlog => 1
+
 worker_processes 2 # this should be >= nr_cpus
 
 pid File.expand_path('tmp/unicorn.pid', ENV['RAILS_ROOT'])
