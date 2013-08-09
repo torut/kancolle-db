@@ -16,3 +16,5 @@
 /config/database.yml
 /vendor/bundle
 config/initializers/omniauth.rb
+log/*/
+public/assets
