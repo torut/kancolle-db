@@ -13,6 +13,7 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
+	<%= stylesheet_link_tag params[:controller], :media => "all" %>
 
 <% if Rails.env.production? %>
 	<script>
@@ -59,6 +60,6 @@ google_ad_height = 50;
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
-
+	<%= javascript_include_tag params[:controller] %>
   </body>
 </html>

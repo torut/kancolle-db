@@ -4,9 +4,9 @@ module FavoriteHelper
     return '' unless output = session[:user_id]
 
     if current_user.favorited(ship_id)
-      output = link_to glyph(:star), '/favorite/' + ship_id.to_s + '/remove', :class => 'remote_post', :data => {:mode => 'remove'}
+      output = link_to glyph(:star), '/favorite/' + ship_id.to_s + '/remove', :class => 'remote_post fav_remove', :data => {:mode => 'remove'}
     else
-      output = link_to glyph(:star_empty), '/favorite/' + ship_id.to_s + '/add', :class => 'remote_post', :data => {:mode => 'add'}
+      output = link_to glyph(:star_empty), '/favorite/' + ship_id.to_s + '/add', :class => 'remote_post fav_add', :data => {:mode => 'add'}
     end
   end
 

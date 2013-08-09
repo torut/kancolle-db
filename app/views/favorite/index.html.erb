@@ -4,11 +4,14 @@
 
 <h2><%= yield(:title) %></h2>
 
-<div class="favorites">
+<div class="favorites row">
 <% @favorites.each do |fav| ship = fav.ship %>
-  <div class="ship well well-small">
-	<h4><%= link_to ship.name, ship, :data => {:colorbox => true, :colorbox_height => '480px', :colorbox_width => '640px', :colorbox_iframe => true} %></h4>
-	<p><%= ship.number %> : <%= ship.ship_class %> : <%= ship.ship_type %></p>
+  <div class="ship well well-small span2">
+	<h4>
+	  <%= add_favorite_icon(ship.id) %>
+	  <%= link_to sprintf("%03d:%s", ship.number, ship.name), ship, :data => {:colorbox => true, :colorbox_height => '480px', :colorbox_width => '640px', :colorbox_iframe => true} %>
+	</h4>
+	<p><%= ship.ship_class %> : <%= ship.ship_type %></p>
   </div>
 <% end %>
 </div>
