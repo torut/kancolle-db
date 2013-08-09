@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
     if session[:user_id]
       @current_user ||= User.find(session[:user_id])
     else
+      session[:request_uri] = request.fullpath if request.get?
       session[:user_id] = nil
       redirect_to :twitter_login
     end

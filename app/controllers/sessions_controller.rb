@@ -11,7 +11,13 @@ class SessionsController < ApplicationController
     @user.update_last_session()
 
     session[:user_id] = @user.id
-    redirect_to root_url, :notice => 'ログインしました'
+    if session[:request_uri]
+      forward_uri = session[:request_uri]
+      session[:request_uri] = nil
+      redirect_to forward_uri, :notice => 'ログインしました'
+    else
+      redirect_to favorite_index_url, :notice => 'ログインしました'
+    end
   end
 
   def destroy
