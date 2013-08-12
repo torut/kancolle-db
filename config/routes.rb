@@ -12,6 +12,7 @@ Kancole::Application.routes.draw do
   root :to => 'index#index'
 
   # OmniAuth
+  match "/auth/failure" => "sessions#failure"
   match "/auth/:provider/callback" => "sessions#callback"
   match "/logout" => "sessions#destroy", :as => :logout
   match "/auth/twitter" => "auth#twitter", :as => :twitter_login

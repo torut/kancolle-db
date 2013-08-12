@@ -24,4 +24,9 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, :notice => 'ログアウトしました'
   end
+
+  def failure
+    session[:user_id] = nil
+    redirect_to root_url, :alert => "Twitterログインに失敗しました(#{params[:message].humanize})"
+  end
 end
