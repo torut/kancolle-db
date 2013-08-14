@@ -12,10 +12,20 @@ class Tasks::ImportEquipment
 
     doc = Nokogiri::HTML(html)
     doc.css('div#body div.ie5 table.style_table tr').each do |tr|
+      next if tr.children.length < 20
       next if tr.children[0].content == 'No.' || tr.children[0].content == 'No'
       next if tr.children[2].content.blank?
 
       equipment = Equipment.new
+
+      if !tr.children[0].content.blank?
+        number = tr.children[0].content
+        old = Equipment.find(:first, :conditions => {:number => number})
+        if !old.nil?
+          equipment = old
+        end
+      end
+
       tr.children.each_with_index do |td, i|
         val = td.content
         style = td['style']
