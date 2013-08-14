@@ -21,6 +21,8 @@ class Ship < ActiveRecord::Base
       '中'
     when 3
       '長'
+    when 4
+      '超長'
     end
   end
 

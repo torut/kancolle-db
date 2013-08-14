@@ -8,13 +8,26 @@ class Tasks::ImportShip
     url = 'http://wikiwiki.jp/kancolle/?%B4%CF%C1%A5'
 
     charset = ''
-    html = open(url);
+    html = ''
+    open(url) do |page|
+      html = page.sysread(page.length)
+      html = html.gsub(/\xAD\xB8/n, 'IV')
+    end
 
     doc = Nokogiri::HTML(html)
     doc.css('div#body div.ie5 table.style_table tr').each do |tr|
       next if tr.children[0].content == 'No.'
 
       ship = Ship.new
+
+      if !tr.children[0].content.blank?
+        number = tr.children[0].content
+        old = Ship.find(:first, :conditions => {:number => number})
+        if !old.nil?
+          ship = old
+        end
+      end
+
       tr.children.each_with_index do |td, i|
         val = td.content
         col = nil
@@ -58,6 +71,8 @@ class Tasks::ImportShip
         when 16
           col = 'range'
           case val
+          when '超長'
+            val = 4
           when '長'
             val = 3
           when '中'
@@ -80,7 +95,6 @@ class Tasks::ImportShip
       ship.save
 
     end
-
 
   end
 
