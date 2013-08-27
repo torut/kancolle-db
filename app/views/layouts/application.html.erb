@@ -41,9 +41,9 @@
           <a class="brand" href="/">艦これデータベース</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "艦娘リスト", "/ships"  %></li>
-              <li><%= link_to "装備品リスト", "/equipment"  %></li>
-              <li><%= link_to "お気に入り艦娘", "/favorite"  %></li>
+              <li<% if current_page?('/ships') %> class="active"<% end %>><%= link_to "艦娘リスト", "/ships" %></li>
+              <li<% if current_page?('/equipment') %> class="active"<% end %>><%= link_to "装備品リスト", "/equipment" %></li>
+              <li<% if current_page?('/favorite') %> class="active"<% end %>><%= link_to "お気に入り艦娘", "/favorite" %></li>
             </ul>
 			<ul class="nav pull-right">
 			  <% if current_user %>
