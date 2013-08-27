@@ -11,14 +11,15 @@
 
 <p>今後の予定</p>
 <ul>
-  <li>艦娘達の初期装備品を艦娘のデータに登録したい</li>
+  <li><span style="text-decoration: line-through;">艦娘達の初期装備品を艦娘のデータに登録したい</span></li>
   <li>Twitterアカウントを使ってユーザー登録したら自分の編成を保存したりしたい</li>
   <li>編成を保存したらそれぞれのレベルとか装備品とかも変更できるようにしたい</li>
 </ul>
 
 <p>サイトについての問合せ先</p>
 <ul>
-  <li><address><%= mail_to('torut@ttsoft.jp', nil, :encode => :hex) %></address></li>
+  <li><%= mail_to('torut@ttsoft.jp', nil, :encode => :hex) %></li>
+  <li><a href="https://twitter.com/intent/tweet?screen_name=toru1231" class="twitter-mention-button" data-lang="ja">Tweet to @toru1231</a></li>
 </ul>
 
 <% if Rails.env.production? %>
