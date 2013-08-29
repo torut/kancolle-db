@@ -4,26 +4,40 @@
 
 <h2><%= yield(:title) %></h2>
 
+<div class="well well-small">
+  <%= form_tag('/ships', {:method => 'get', :class => 'form-inline'}) do %>
+  <% @ship_types.each do |type| %>
+  <label class="checkbox">
+	<input type="checkbox" value="<%= type.ship_type %>" name="types[]"<% if @search_types.include?(type.ship_type) %> checked="checked"<% end %> />
+	<%= type.ship_type %>
+  </label>
+  <% end %>
+
+  <%= submit_tag('艦種で絞り込み', {:name => ''}) %>
+  <%= button_tag('クリア', {:type => 'button', :id => 'search_clear'}) %>
+  <% end %>
+</div>
+
 <table class="table table-striped table-hover">
   <tr>
-	<th><%= sortable('番号', 'number', @sort, @direction) %></th>
-    <th><%= sortable('艦名', 'name', @sort, @direction) %></th>
-    <th><%= sortable('艦級', 'ship_class', @sort, @direction) %></th>
-    <th><%= sortable('艦種', 'ship_type', @sort, @direction) %></th>
-    <th><%= sortable('耐久', 'stamina', @sort, @direction) %></th>
-    <th><%= sortable('火力', 'firepower', @sort, @direction) %></th>
-    <th><%= sortable('装甲', 'cuirass', @sort, @direction) %></th>
-    <th><%= sortable('雷装', 'torpedo', @sort, @direction) %></th>
-    <th><%= sortable('回避', 'avoidance', @sort, @direction) %></th>
-    <th><%= sortable('対空', 'antiair', @sort, @direction) %></th>
-    <th><%= sortable('搭載', 'aircapacity', @sort, @direction) %></th>
-    <th><%= sortable('対潜', 'antisubmarine', @sort, @direction) %></th>
-    <th><%= sortable('速力', 'speed', @sort, @direction) %></th>
-    <th><%= sortable('索敵', 'scouting', @sort, @direction) %></th>
-    <th><%= sortable('射程', 'range', @sort, @direction) %></th>
-    <th><%= sortable('運', 'luck', @sort, @direction) %></th>
-    <th><%= sortable('改装', 'renovation_level', @sort, @direction) %></th>
-    <th><%= sortable('レア度', 'rare', @sort, @direction) %></th>
+    <th><%= sortable('番号', 'number', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('艦名', 'name', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('艦級', 'ship_class', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('艦種', 'ship_type', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('耐久', 'stamina', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('火力', 'firepower', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('装甲', 'cuirass', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('雷装', 'torpedo', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('回避', 'avoidance', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('対空', 'antiair', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('搭載', 'aircapacity', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('対潜', 'antisubmarine', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('速力', 'speed', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('索敵', 'scouting', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('射程', 'range', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('運', 'luck', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('改装', 'renovation_level', @sort, @direction, {:types => @search_types}) %></th>
+    <th><%= sortable('レア度', 'rare', @sort, @direction, {:types => @search_types}) %></th>
     <th>備考</th>
   </tr>
 

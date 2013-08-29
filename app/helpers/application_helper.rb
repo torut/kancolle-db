@@ -6,9 +6,9 @@ module ApplicationHelper
     sprintf('%+d', num)
   end
 
-  def sortable(title, sort_key, current_sort_key, direction)
+  def sortable(title, sort_key, current_sort_key, direction, query={})
     direct = current_sort_key == sort_key ? (direction == 'asc' ? 'desc' : 'asc') : 'asc'
-    output = link_to title, :sort => sort_key, :direction => direct
+    output = link_to title, {:sort => sort_key, :direction => direct}.merge(query)
     output += add_icon(current_sort_key, sort_key, direction).html_safe
   end
 

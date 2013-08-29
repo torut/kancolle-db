@@ -4,6 +4,10 @@ class Ship < ActiveRecord::Base
 
   validates_presence_of :name, :number, :ship_class, :ship_type, :rare
 
+  def self.get_ship_types
+    self.find(:all, {:select => 'ship_type', :group => 'ship_type'})
+  end
+
   def speed_value
     case speed
     when 1

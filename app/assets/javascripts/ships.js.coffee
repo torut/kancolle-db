@@ -26,3 +26,6 @@ $ ->
     })
     return false
 
+  $(document).on 'click', 'button#search_clear', ->
+    $('input[name^=\'types\']').removeAttr('checked')
+
