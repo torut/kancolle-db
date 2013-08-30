@@ -31,4 +31,22 @@ class FavoriteController < ApplicationController
     end
   end
 
+  def sort
+    priority = params[:favorite] || []
+
+    p = 1
+    priority.each do |fav_id|
+      @favorite = Favorite.find(fav_id)
+      if @favorite
+        @favorite.priority = p
+        @favorite.save
+        p = p + 1
+      end
+    end
+
+    respond_to do |format|
+      format.json { render json: {} }
+    end
+  end
+
 end

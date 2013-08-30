@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :provider, :uid, :last_session_at
 
   has_many :favorites,
-    :order => 'created_at DESC'
+    :order => 'priority ASC, created_at DESC'
 
   def self.create_with_omniauth(auth, info)
     create! do |u|

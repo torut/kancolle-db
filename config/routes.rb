@@ -1,7 +1,8 @@
 Kancole::Application.routes.draw do
 
-  resources :favorite, :only => [:index, :add, :remove] do
-    post :add, :remove, :on => :member
+  resources :favorite, :only => [:index, :add, :remove, :sort] do
+    post :add, :remove, :on => :member # /favorite/<ship_id>/add
+    post :sort, :on => :collection
   end
 
   resources :equipment, :only => [:index, :show]
