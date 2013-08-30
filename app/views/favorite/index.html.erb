@@ -4,9 +4,9 @@
 
 <h2><%= yield(:title) %></h2>
 
-<div class="favorites row">
+<div class="favorites row" id="complete_sort" data-content="並び順を保存しました">
 <% @favorites.each do |fav| ship = fav.ship %>
-  <div class="ship well well-small span2">
+  <div class="ship well well-small span2" id="favorite-<%= fav.id %>">
 	<h4>
 	  <%= add_favorite_icon(ship.id) %>
 	  <%= link_to sprintf("%03d:%s", ship.number, ship.name), ship, :data => {:colorbox => true, :colorbox_height => '480px', :colorbox_width => '640px', :colorbox_iframe => true} %>
