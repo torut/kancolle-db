@@ -30,33 +30,21 @@
   </head>
   <body>
 
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/">艦これデータベース</a>
-          <div class="container nav-collapse">
-            <ul class="nav">
-              <li<% if current_page?('/ships') %> class="active"<% end %>><%= link_to "艦娘リスト", "/ships" %></li>
-              <li<% if current_page?('/equipment') %> class="active"<% end %>><%= link_to "装備品リスト", "/equipment" %></li>
-              <li<% if current_page?('/favorite') %> class="active"<% end %>><%= link_to "お気に入り艦娘", "/favorite" %></li>
-            </ul>
-			<ul class="nav pull-right">
-			  <% if current_user %>
-			  <li><%= link_to current_user.name, :root %></li>
-			  <li><%= link_to "ログアウト", :logout %></li>
-			  <% else %>
-			  <li><%= link_to "Twitterでログイン", :twitter_login %></li>
-			  <% end %>
-			</ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+    <%= nav_bar brand: '艦これデータベース' do %>
+      <%= menu_group do %>
+        <%= menu_item '艦娘リスト', '/ships' %>
+        <%= menu_item '装備品リスト', '/equipment' %>
+        <%= menu_item 'お気に入り艦娘', '/favorite' %>
+      <% end %>
+      <%= menu_group pull: 'right' do %>
+        <% if current_user %>
+        <%= menu_item current_user.name, url_for(:root) %>
+        <%= menu_item 'ログアウト', url_for(:logout) %>
+        <% else %>
+        <%= menu_item 'Twitterでログイン', url_for(:twitter_login) %>
+        <% end %>
+      <% end %>
+    <% end %>
 
     <div class="container">
         <div class="row">
