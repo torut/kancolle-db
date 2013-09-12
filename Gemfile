@@ -22,7 +22,7 @@ group :assets do
   gem 'less-rails'
 end
 
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'simple_form'
 
 gem 'colorbox-rails'
