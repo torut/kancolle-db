@@ -34,11 +34,16 @@
       <%= menu_group do %>
         <%= menu_item '艦娘リスト', '/ships' %>
         <%= menu_item '装備品リスト', '/equipment' %>
-        <%= menu_item 'お気に入り艦娘', '/favorite' %>
+        <%= menu_item '/favorite' do %>
+        お気に入り艦娘
+        <% if current_user %>
+          <%= badge(current_user.favorites_count, :info) %>
+        <% end %>
+        <% end %>
       <% end %>
       <%= menu_group pull: 'right' do %>
         <% if current_user %>
-        <%= menu_item current_user.name, url_for(:root) %>
+        <%= menu_item current_user.name, url_for(:mypage) %>
         <%= menu_item 'ログアウト', url_for(:logout) %>
         <% else %>
         <%= menu_item 'Twitterでログイン', url_for(:twitter_login) %>
@@ -47,12 +52,12 @@
     <% end %>
 
     <div class="container">
-        <div class="row">
-          <div class="span12">
-            <%= bootstrap_flash %>
-            <%= yield %>
-          </div>
-        </div><!--/row-->
+      <div class="row">
+        <div class="span12">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+      </div><!--/row-->
 
       <footer>
         <p>&copy; kancolle-db.info 2013</p>

@@ -31,5 +31,8 @@ class User < ActiveRecord::Base
     return false
   end
 
+  def favorites_count
+    self.favorites.size
+  end
 
 end

@@ -10,6 +10,8 @@ Kancole::Application.routes.draw do
 
   get "index/index"
 
+  get "mypage/index", :as => :mypage
+
   root :to => 'index#index'
 
   # OmniAuth
